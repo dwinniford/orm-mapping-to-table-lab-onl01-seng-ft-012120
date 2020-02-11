@@ -28,6 +28,7 @@ class Student
       VALUES (?, ?)
     SQL
     DB[:conn].execute(sql, self.name, self.grade)
+    @id = DB[:conn].execute("VALUE last_inserted_row_id()")
   end 
   # access your database connection anywhere in this class
   #  with DB[:conn]  
